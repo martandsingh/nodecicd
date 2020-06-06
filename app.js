@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 
-app.get('/', (req, res) => res.send('Hello World!'))
+module.exports.hello = app.get('/', (req, res) => res.send('Hello World!'))
 module.exports.sayhello = app.post('/sayhello', (req, res) => {
     var name = 'Guest!!'
     console.log("BODY: ")
