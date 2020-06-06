@@ -19,7 +19,7 @@ exports.sayhello = (req, res) => {
     if(req.body != undefined && req.body.name != undefined){
         name=req.body.name;
     }
-    res.send('Hello '+name + ". Welcome to Google Cloud Function...")
+    res.send('Hello '+name + ". Welcome to GCP")
 }
 
 /**
