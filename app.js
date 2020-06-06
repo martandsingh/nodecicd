@@ -1,24 +1,6 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const bodyParser = require("body-parser");
 
-/** bodyParser.urlencoded(options)
- * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
- * and exposes the resulting object (containing the keys and values) on req.body
- */
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
-/**bodyParser.json(options)
- * Parses the text as JSON and exposes the resulting object on req.body.
- */
-app.use(bodyParser.json());
-
-
-module.exports.hello = app.get('/', (req, res) => res.send('Hello World!'))
-module.exports.sayhello = app.post('/sayhello', (req, res) => {
+module.exports.hello = (req, res) => res.send('Hello World!')
+module.exports.sayhello = (req, res) => {
     var name = 'Guest!!'
     console.log("BODY: ")
     console.log(req.body)
@@ -26,6 +8,17 @@ module.exports.sayhello = app.post('/sayhello', (req, res) => {
         name=req.body.name;
     }
     res.send('Hello '+name)
-})
+}
 
+/**
+ * Responds to any HTTP request.
+ *
+ * @param {!express:Request} req HTTP request context.
+ * @param {!express:Response} res HTTP response context.
+ */
+exports.helloWorld = (req, res) => {
+    let message = req.query.message || req.body.message || 'Hello World!';
+    res.status(200).send(message);
+  };
+  
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
