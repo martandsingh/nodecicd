@@ -1,6 +1,18 @@
+/**
+ * Responds to any HTTP request.
+ *
+ * @param {!express:Request} req HTTP request context.
+ * @param {!express:Response} res HTTP response context.
+ */
+exports.hello = (req, res) => res.send('Hello World!')
 
-module.exports.hello = (req, res) => res.send('Hello World!')
-module.exports.sayhello = (req, res) => {
+/**
+ * Responds to any HTTP request.
+ *
+ * @param {!express:Request} req HTTP request context.
+ * @param {!express:Response} res HTTP response context.
+ */
+exports.sayhello = (req, res) => {
     var name = 'Guest!!'
     console.log("BODY: ")
     console.log(req.body)
@@ -21,4 +33,3 @@ exports.helloWorld = (req, res) => {
     res.status(200).send(message);
   };
   
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
